@@ -141,9 +141,12 @@ export default function Addacount() {
 
       <button
         className="submit-btn"
-        onClick={() => validateInputs() && signUp()}
+        onClick={() => validateInputs() && SignUp()}
       >
         登録
+      </button>
+      <button className="back-button" onClick={() => navigate("/")}>
+        戻る
       </button>
     </div>
   );
