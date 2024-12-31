@@ -1,0 +1,122 @@
+/* 全体のコンテナ */
+.parent-container {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 子供リストのアイテム */
+.kid-item {
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.kid-info {
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.kid-id {
+  font-weight: bold;
+  color: #333;
+}
+
+.study-status {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ボタンスタイル */
+button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  background-color: #004085;
+}
+
+/* 削除ボタン */
+.delete-button {
+  background-color: #dc3545;
+  margin-top: 8px;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+/* ログアウトボタン */
+.logout-button {
+  background-color: #6c757d;
+}
+
+.logout-button:hover {
+  background-color: #5a6268;
+}
+
+/* アクションボタンのコンテナ */
+.action-buttons {
+  margin-top: 20px;
+}
+
+/* エラーメッセージ */
+.not-found {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  padding: 20px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 480px) {
+  .parent-container {
+    padding: 8px;
+  }
+
+  .kid-item {
+    padding: 8px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .kid-id {
+    font-size: 14px;
+  }
+
+  .study-status {
+    font-size: 12px;
+  }
+}
+.mypage-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mypage-header h1 {
+  font-size: 28px;
+  color: white;
+}

@@ -1,0 +1,88 @@
+/* 全体コンテナ */
+.home-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  color: #333333;
+}
+
+/* ヘッダー */
+.home-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-header h1 {
+  font-size: 28px;
+  color: white;
+}
+
+/* ログインボタン */
+.home-login-button {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-login-button button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.home-login-button button:hover {
+  background-color: #0056b3;
+}
+
+/* 学年セレクトボックス */
+.home-select-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  width: 60%;
+}
+
+/* データコンテナ */
+.home-data-container {
+  margin-top: 20px;
+}
+
+.home-data-item {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.home-data-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.home-data-content {
+  font-size: 14px;
+  color: #555555;
+}
+
+/* ローディング */
+.home-loading,
+.home-no-data {
+  text-align: center;
+  font-size: 18px;
+  color: #777777;
+}

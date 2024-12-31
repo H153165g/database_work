@@ -1,0 +1,90 @@
+/* スマホ対応の基本レイアウト */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* コンテナ全体のスタイル */
+.study-container {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* タイトルのスタイル */
+.study-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* タイマー表示 */
+.study-timer {
+  font-size: 36px;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 20px 0;
+}
+
+/* ボタンのアクションエリア */
+.study-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* ボタンのスタイル */
+.study-button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* ボタンごとの色分け */
+.study-start-button {
+  background-color: #007bff;
+}
+
+.study-start-button:hover {
+  background-color: #0056b3;
+}
+
+.study-stop-button {
+  background-color: #ff9800;
+}
+
+.study-stop-button:hover {
+  background-color: #e68a00;
+}
+
+.study-finish-button {
+  background-color: #f44336;
+}
+
+.study-finish-button:hover {
+  background-color: #d32f2f;
+}
+
+.mypage-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mypage-header h1 {
+  font-size: 28px;
+  color: white;
+}
