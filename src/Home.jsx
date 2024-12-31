@@ -63,7 +63,7 @@ export default function Home() {
       <div className="home-login-button">
         <button onClick={handleNavigation}>
           {localStorage.getItem("status") === null
-            ? "ログイン"
+            ? "ログイン　または　新規登録"
             : "マイページへ"}
         </button>
       </div>

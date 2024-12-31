@@ -56,54 +56,44 @@ GROUP BY 親Id, 親パスワード;
 
 @app.route('/items', methods=['GET'])
 def get_items():
-    filter1 = request.args.get('filter1')  # フィルターを取得
-    filter2 = request.args.get('filter2')
+    filter1 = request.args.get('filter1')  # 学年フィルターを取得
+    filter2 = request.args.get('filter2')  # 教科フィルターを取得
     try:
         # クエリパラメータからページ番号を取得 (デフォルトは1)
         page = int(request.args.get('page', 1))
         items_per_page = 50  # 1ページあたりの件数
         offset = (page - 1) * items_per_page
 
-        # SQLクエリの分岐
-        if filter1 and filter2:  # フィルタが指定されている場合
-            sql = '''
-    SELECT * 
-    FROM 子勉強記録
-    WHERE 学年 = %s AND 教科=%s AND 承認 = 'true'
-    ORDER BY 投稿時間 DESC
-    LIMIT %s OFFSET %s
-    '''
-            params = (filter, items_per_page, offset)
-        elif filter1 and filter2=="":  # フィルタが指定されていない場合
-            sql = '''
-    SELECT * 
-    FROM 子勉強記録
-    WHERE 学年=%s AND 承認 = 'true'
-    ORDER BY 投稿時間 DESC
-    LIMIT %s OFFSET %s
-    '''
-        elif filter1=="" and filter2:
-            sql = '''
-    SELECT * 
-    FROM 子勉強記録
-    WHERE 教科=%s AND 承認 = 'true'
-    ORDER BY 投稿時間 DESC
-    LIMIT %s OFFSET %s
-    '''
-        else:
-            sql = '''
-    SELECT * 
-    FROM 子勉強記録
-    WHERE 承認 = 'true'
-    ORDER BY 投稿時間 DESC
-    LIMIT %s OFFSET %s
-    '''
-        params = (items_per_page, offset)
+        # SQLクエリのベース
+        base_query = '''
+            SELECT * 
+            FROM 子勉強記録
+            WHERE 承認 = 'true'
+        '''
+        filters = []
+        params = []
 
+        # 学年フィルター
+        if filter1:
+            filters.append("学年 = %s")
+            params.append(filter1)
+
+        # 教科フィルター
+        if filter2:
+            filters.append("教科 = %s")
+            params.append(filter2)
+
+        # フィルタがあればWHERE句に追加
+        if filters:
+            base_query += " AND " + " AND ".join(filters)
+
+        # 並び替えとページング
+        base_query += " ORDER BY 投稿時間 DESC LIMIT %s OFFSET %s"
+        params.extend([items_per_page, offset])
 
         # クエリ実行
         cursor = connection.cursor()
-        cursor.execute(sql, params)
+        cursor.execute(base_query, params)
         result = cursor.fetchall()
 
         # データをJSON形式に変換
@@ -114,6 +104,7 @@ def get_items():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 @app.route('/itemsfalse', methods=['GET'])
 def get_itemsfalse():
