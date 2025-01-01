@@ -105,7 +105,7 @@ export default function Kids() {
           tooltip: {
             callbacks: {
               label: (tooltipItem) => {
-                const hours = tooltipItem.raw / 60; // 分を時間に変換
+                const hours = tooltipItem.raw; // 分を時間に変換
                 return `${tooltipItem.label}: ${hours}時間`;
               },
             },

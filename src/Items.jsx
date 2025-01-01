@@ -95,7 +95,6 @@ export default function Items() {
           <p className="item-time">{item["時間"]}</p>
           <p className="item-content">{item["内容"]}</p>
           <div className="item-buttons">
-            <button className="item-button-delete">削除</button>
             <button
               className="item-button-approve"
               onClick={() => itemAuther(item)}

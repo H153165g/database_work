@@ -102,7 +102,7 @@ export default function Home() {
       {/* データ表示 */}
       <div className="home-data-container">
         {data.length === 0 ? (
-          <div className="home-no-data">少々お待ちください。</div>
+          <div className="home-no-data">投稿がありません。</div>
         ) : (
           data.map((item, index) => (
             <div key={index} className="home-data-item">

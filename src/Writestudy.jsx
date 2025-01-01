@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { poststudy } from "./api";
+import { poststudy, study_realtime } from "./api";
 import { useNavigate } from "react-router-dom";
 import "./Writestudy.css";
 
 export default function Writestudy() {
   const email = localStorage.getItem("email");
+  const name = localStorage.getItem("name");
   const kid_id = JSON.parse(localStorage.getItem("name"));
   const time = localStorage.getItem("Time") || 0;
   const [write, setWrite] = useState("");
@@ -38,6 +39,11 @@ export default function Writestudy() {
         });
 
         localStorage.setItem("Time", 0);
+        study_realtime({
+          UserId: email,
+          子Id: name["子Id"],
+          勉強中: false,
+        });
         navigate("/kid"); // poststudyが完了した後にページ遷移を行う
       } catch (error) {
         alert("データ送信に失敗しました。再度試してください。");
